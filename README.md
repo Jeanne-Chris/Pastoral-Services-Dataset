@@ -9,7 +9,8 @@ Pastoral Services. This data represents the performance accomplishment for an ev
 Yearend Strategic Planning for the incoming year.
 
 Reports are usually presented every end of the month (in my time, every last Wednesday).
- 			Month_End : Last Saturday of the month
+ 			
+    Month_End : Last Saturday of the month
  			Min_Month : Projected participants every event. Please take note that each number 
  						      represents a couple.
  			Actual_Month : Represent the actual number of participants who completed the events.
