@@ -103,3 +103,17 @@ plt.yticks(rotation=0)
 plt.legend(loc='upper left')
 plt.show()
 
+# Create filter and plot for 2019 summary
+df = pd.read_csv("MarriagePreparationSeminar.csv", parse_dates=['Month_End'])
+mask = df['Month_End'].dt.year == 2019
+newfile = str(2019) + "file.csv"
+df.loc[mask].to_csv(newfile)
+
+# Read from newfile
+df2 = pd.read_csv(newfile, index_col=1, parse_dates=True)
+
+# Create simple plot
+df2[["Min_Month", "Actual_Month"]].plot()
+
+
+
