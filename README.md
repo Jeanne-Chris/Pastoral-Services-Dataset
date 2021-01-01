@@ -1,7 +1,7 @@
 # Pastoral-Services-Dataset
 Pastoral Care Services Datasets
 
-Datasets: Marriage Preparation Seminar
+Dataset: Marriage Preparation Seminar
 
 MarriagePreparationSeminar.csv is a history of monthly summary record of one of the church ministry called Pastoral Services. This data represents the performance accomplishment for an event named "Marriage Preparation Seminar". This event is usually projected on a monthly basis as presented during Yearend Strategic Planning for the incoming year.
 
