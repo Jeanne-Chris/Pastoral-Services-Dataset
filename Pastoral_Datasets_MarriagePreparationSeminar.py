@@ -1,25 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# Pastoral Datasets: Marriage Preparation Seminar
-
 # In[71]:
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
-
-# MarriagePreparationSeminar.csv is a history of monthly summary record of one of the church ministry called 
-# Pastoral Services. This data represents the performance accomplishment for an event named 
-# "Marriage Preparation Seminar". This event is usually projected on a monthly basis as presented during 
-# Yearend Strategic Planning for the incoming year.
-# 		Reports are usually presented every end of the month (in my time, every last Wednesday).
-# 			Month_End : Last Saturday of the month
-# 			Min_Month : Projected participants every event. Please take note that each number 
-# 						represents a couple.
-# 			Actual_Month : Represent the actual number of participants who completed the events.
-# 
-# NOTE: Schedule that would fall on holidays and important family days were usually compressed to a 
-# 		shorter meetings depending on the duration of the holidays (e.g. Holy Week, Christmas weeks, etc.)
 
 # In[72]:
 MPS_data = pd.read_csv("MarriagePreparationSeminar.csv", index_col=0, parse_dates=True)
@@ -27,7 +12,7 @@ MPS_data = pd.read_csv("MarriagePreparationSeminar.csv", index_col=0, parse_date
 # In[73]:
 MPS_data.head()
 
-# Creating a column for the variance between projected and actual participants
+# Create a new column for the variance between projected and actual participants
 # In[74]:
 MPS_data["Unable To Complete"] = MPS_data["Min_Month"] - MPS_data["Actual_Month"]
 
@@ -35,7 +20,7 @@ MPS_data["Unable To Complete"] = MPS_data["Min_Month"] - MPS_data["Actual_Month"
 MPS_data.head()
 
 
-# Creating a column for the percentage of accomplishment
+# Create a new column for the percentage of accomplishment
 # In[76]:
 MPS_data["PercentagePerformance"] = (MPS_data["Actual_Month"] / MPS_data["Min_Month"]) * 100
 
@@ -63,16 +48,16 @@ MPS_data.shape
 MPS_data.size
 
 
-# Creating a pandas plot comparison
+# Create a pandas plot comparison
 # In[84]:
 MPS_data[["Min_Month", "Actual_Month"]].plot()
 
-# Creating a scatter plot comparison
+# Create a scatter plot comparison
 # In[85]:
 MPS_data.plot.scatter(x="Min_Month", y="Actual_Month", alpha=1)
 
 
-# Presenting each column in a pandas separate subplot
+# Presents each column in a pandas separate subplot
 # In[86]:
 MPS_data = pd.read_csv("MarriagePreparationSeminar.csv", index_col=0, parse_dates=True)
 MPS_data.plot.area(figsize=(12, 4), subplots=True)
@@ -85,7 +70,7 @@ axs.set_xlabel("End of the Month")
 fig.savefig("mps.png")
 
 
-# Creating pivot table from existing columns and can be plotted instantly
+# Create pivot table from existing columns and can be plotted instantly
 # In[88]:
 MPS_data.pivot(columns="Min_Month", values="Min_Month")
 
@@ -99,7 +84,7 @@ MPS_data.pivot(columns="Actual_Month", values="Actual_Month")
 # MPS_data.pivot(columns="Actual_Month", values="Actual_Month").plot()
 
 
-# Creating matplotlib plot plt line comparison 
+# Create matplotlib plot line comparison 
 # In[92]:
 MPS_data = pd.read_csv("MarriagePreparationSeminar.csv", parse_dates=True)
 target_perform = MPS_data['Min_Month']
