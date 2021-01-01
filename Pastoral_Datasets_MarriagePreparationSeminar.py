@@ -111,7 +111,8 @@ df.loc[mask].to_csv(newfile)
 
 # Read from newfile
 df2 = pd.read_csv(newfile, index_col=1, parse_dates=True)
-
+# Display df2 contents
+df2
 # Create simple plot
 df2[["Min_Month", "Actual_Month"]].plot()
 
